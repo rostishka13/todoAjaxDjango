@@ -5,6 +5,6 @@ from .views import TaskList
 
 
 urlpatterns = [
-    path('', TaskList.as_view(), name='task_list,url')
+    path('', TaskList.as_view(), name='task_list_url')
 
 ]
