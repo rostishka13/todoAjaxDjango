@@ -7,17 +7,17 @@
 {% block content %}
     <div class="col-8 mt-5">
 
-            <form action="", method="post" class="justify-content-center ">
+            <form action="", method="post" data-url="{% url 'task_list_url'%}" class="justify-content-center" id="createTaskForm">
                 {% csrf_token %}
                 {% for field in form %}
                     {{field}}
                 {% endfor %}
-                <button type="submit" class="btn btn-outline-success mt-3"> CREATE</button>
+                <button type="button" class="btn btn-outline-success mt-3" id="createButton"> CREATE</button>
             </form>
 
     </div>
 
-    <div class="col-5 mt-5">
+    <div class="col-5 mt-5" id="taskList">
         
              {% for task in tasks%} 
              <div class="card mb-3">

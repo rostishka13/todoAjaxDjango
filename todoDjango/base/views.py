@@ -2,7 +2,8 @@ from django.shortcuts import redirect, render
 from django.views.generic import View
 from .models import Task
 from .forms import TaskForm
-
+from django.http import JsonResponse
+from django.forms.models import model_to_dict
 # Create your views here.
 
 class TaskList(View):
@@ -18,7 +19,7 @@ class TaskList(View):
 
         if form.is_valid():
             new_task = form.save()
-            return redirect('task_list_url')
+            return JsonResponse({'task': model_to_dict(new_task)}, status=200)
 
         else:
             return redirect('task_list,url')
